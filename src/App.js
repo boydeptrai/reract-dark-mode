@@ -20,7 +20,7 @@ function App() {
       }
       window.addEventListener("resize",handleSize);
       handleSize();
-      window.removeEventListener("resize",handleSize);
+      return () => window.removeEventListener("resize",handleSize);
   },[]);
   useEffect(() =>{
     if (windowSize.width < 500) {
@@ -31,7 +31,7 @@ function App() {
 
   },[windowSize])
   return (
-    <div className="font-sora h-screen overflow-y-auto overflow-x-hidden px-4 py-8 bg-gradient-to-b from-purple-900 to-purple-700 text-white">
+    <div className="font-sora h-screen overflow-y-auto overflow-x-hidden px-4 py-8 bg-gradient-to-b dark:from-purple-900 dark:to-purple-700 from-white to-pink-500 dark:text-white text-black md:px-20">
       <NavBar isMobile={isMobile}/>
       <Slogan />
       <Content />
